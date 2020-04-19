@@ -6,6 +6,9 @@ const router = new Router();
 router.route('/')
   .get((req, res) => controller.getAll(req, res))
   .post((req, res) => controller.create(req, res))
+  
+router.route('/average')
+    .get((req, res) => controller.getAverage(req, res))
 
 router.route('/:id')
   .get((req, res) => controller.getById(req, res))
@@ -14,5 +17,6 @@ router.route('/:id')
 
 router.route('/:property/:value')
   .put((req, res) => controller.updateBy(req, res))
+
 
 module.exports = router;

@@ -45,7 +45,7 @@ exports.getById = async (req, res) => {
     if (!ans) {
       return res
         .status(httpStatus.NOT_FOUND)
-        .send({ message: 'Not found' });
+        .send({ message: 'Not found :(' });
     }
     return res
       .status(httpStatus.OK)
@@ -111,5 +111,27 @@ exports.updateBy = async (req, res) => {
     return res
       .status(httpStatus.INTERNAL_SERVER_ERROR)
       .send({ message: 'Internal server error' });
+  }
+};
+
+exports.getAverage = async (req, res) => {
+  try {
+    const ans = await service.getAll();
+    if (!ans) {
+      return res
+        .status(httpStatus.NOT_FOUND)
+        .send({ message: 'Not found :(' });
+    }
+    const total = ans.reduce((total, student) => total + student.average ,0);
+    const average = total / ans.length;
+
+    return res
+      .status(httpStatus.OK)
+      .send({ average });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(httpStatus.INTERNAL_SERVER_ERROR)
+      .send({ message: 'Interal server error' });
   }
 };
