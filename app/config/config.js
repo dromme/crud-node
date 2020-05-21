@@ -6,6 +6,6 @@ const MONGODB = {
 
 const MONGODB_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true };
 const MONGO_URI = `mongodb+srv://${MONGODB.DB_USER}:${MONGODB.DB_PASS}@${MONGODB.DB_HOST}`;
-const PORT = '3000';
+const PORT = '8081';
 
 module.exports = {MONGODB, MONGODB_OPTIONS, MONGO_URI, PORT};

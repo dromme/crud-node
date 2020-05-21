@@ -40,6 +40,7 @@ exports.getAll = async (req, res) => {
 exports.getById = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(id);
     const ans = await service.getById(id);
 
     if (!ans) {

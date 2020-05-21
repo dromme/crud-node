@@ -19,7 +19,7 @@ const schema = {
   },
   average: {
     type: Number,
-    required: true,
+    required: false,
   }
 };
 
